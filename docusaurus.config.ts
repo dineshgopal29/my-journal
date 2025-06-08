@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'AI Social Journal',
   tagline: 'Lets make sense of AI — together.',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logo1.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {

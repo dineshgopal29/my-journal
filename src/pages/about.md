@@ -2,7 +2,7 @@
 slug: about
 title: About Me
 authors: dgopal
-tags: [hello, docusaurus]
+tags: [about, AI, personal]
 ---
 
 # About Me

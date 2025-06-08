@@ -3,7 +3,7 @@ slug: /
 title: "Welcome to AI Social Journal"
 description: "A personal blog documenting my journey through the world of Artificial Intelligence - from RAG chatbots to agentic workflows."
 keywords: [AI, artificial intelligence, machine learning, RAG, chatbots, agentic workflows, tutorials]
-image: /img/docusaurus-social-card.jpg
+image: /img/logo1.png
 hide_table_of_contents: false
 ---
 

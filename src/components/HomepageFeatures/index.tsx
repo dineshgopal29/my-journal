@@ -11,32 +11,32 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
+    title: 'AI Guides & Tutorials',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Comprehensive guides on RAG, LLMs, and AI implementation patterns.
+        From theory to practical implementation with real code examples.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Research & Insights',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Stay updated with the latest AI research, trends, and industry insights.
+        Deep dives into Stanford AI reports, new model releases, and more.
       </>
     ),
   },
   {
-    title: 'Powered by React',
+    title: 'Hands-on Implementation',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Practical tutorials with code, deployment guides, and real-world
+        applications. Learn by building AI-powered solutions step by step.
       </>
     ),
   },
