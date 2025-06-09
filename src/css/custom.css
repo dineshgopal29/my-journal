@@ -102,17 +102,6 @@
   color: white !important;
 }
 
-/* GitHub link styling */
-.navbar__link[href*="github"] {
-  color: white !important;
-}
-
-.navbar__link[href*="github"]:hover {
-  color: white !important;
-  background: rgba(255, 255, 255, 0.2) !important;
-  border-radius: 6px;
-}
-
 /* Dark mode navbar adjustments */
 [data-theme='dark'] .navbar {
   background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%) !important;
