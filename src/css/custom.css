@@ -182,36 +182,152 @@
   color: white !important;
 }
 
-/* Mobile responsive adjustments */
+/* Simple mobile navigation - let Docusaurus handle the basics */
 @media (max-width: 996px) {
+  /* Ensure hamburger menu is visible and properly styled */
   .navbar__toggle {
     display: flex !important;
+    color: white !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 6px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s ease !important;
   }
   
-  .navbar__items {
+  .navbar__toggle:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+  }
+  
+  .navbar__toggle svg {
+    width: 24px !important;
+    height: 24px !important;
+    color: white !important;
+  }
+  
+  /* Force display of hamburger menu */
+  .navbar__toggle {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Hide regular navbar items on mobile */
+  .navbar__items--left > .navbar__item {
     display: none !important;
   }
   
-  .navbar__items--right {
+  .navbar__items--right > .navbar__item {
     display: none !important;
+  }
+  
+  /* Ensure navbar brand stays visible */
+  .navbar__brand {
+    display: flex !important;
   }
 }
 
-/* Show items on mobile when sidebar is open */
+/* Mobile sidebar when open */
+.navbar-sidebar {
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%) !important;
+}
+
+.navbar-sidebar .navbar__brand {
+  color: white !important;
+}
+
 .navbar-sidebar .navbar__items {
   display: flex !important;
   flex-direction: column !important;
 }
 
-.navbar-sidebar .navbar__item {
-  width: 100% !important;
-  padding: 0.5rem 1rem !important;
+.navbar-sidebar .navbar__item .navbar__link {
+  color: white !important;
+  padding: 1rem 1.5rem !important;
+  display: block !important;
+  transition: all 0.3s ease !important;
+  border-radius: 0 !important;
+  margin: 0 !important;
 }
 
-.navbar-sidebar .navbar__item .navbar__link {
-  width: 100% !important;
+.navbar-sidebar .navbar__item .navbar__link:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: white !important;
+}
+
+.navbar-sidebar .navbar__item .navbar__link--active {
+  background: rgba(255, 255, 255, 0.25) !important;
+  color: white !important;
+}
+
+/* Dark mode mobile sidebar */
+[data-theme='dark'] .navbar-sidebar {
+  background: linear-gradient(135deg, #4338ca 0%, #3730a3 100%) !important;
+}
+
+/* Additional mobile navigation fixes */
+@media (max-width: 996px) {
+  /* Force display of hamburger menu */
+  .navbar__toggle {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  
+  /* Hide regular navbar items on mobile */
+  .navbar__items--left > .navbar__item {
+    display: none !important;
+  }
+  
+  .navbar__items--right > .navbar__item {
+    display: none !important;
+  }
+  
+  /* Ensure navbar brand stays visible */
+  .navbar__brand {
+    display: flex !important;
+  }
+}
+
+/* Mobile sidebar specific fixes */
+.navbar-sidebar.navbar-sidebar--show {
   display: block !important;
-  padding: 0.75rem 1rem !important;
-  border-radius: 6px !important;
-  margin: 0.25rem 0 !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.navbar-sidebar .navbar__items .navbar__item {
+  display: block !important;
+  width: 100% !important;
+}
+
+.navbar-sidebar .navbar__items .navbar__link {
+  display: block !important;
+  width: 100% !important;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+/* Ensure mobile menu appears above everything */
+.navbar-sidebar {
+  z-index: 9999 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+/* Mobile menu backdrop */
+.navbar-sidebar__backdrop {
+  display: block !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.5) !important;
+  z-index: 9998 !important;
 }
