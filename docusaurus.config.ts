@@ -80,9 +80,11 @@ const config: Config = {
     navbar: {
       title: 'AI Social Journal',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'AI Social Journal Logo',
         src: 'img/logo1.png',
       },
+      hideOnScroll: false,
+      style: 'primary',
       items: [
         {
           type: 'docSidebar',
