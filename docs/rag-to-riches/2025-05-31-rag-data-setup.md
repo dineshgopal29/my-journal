@@ -18,7 +18,7 @@ tags:
 description: "Learn how to prepare data and generate vector embeddings for RAG chatbots"
 ---
 
-# 📄 Part 2: Preparing Data & Generating Embeddings
+# 📄 Preparing Data & Generating Embeddings
 
 In our [previous post](./2025-05-21-rag-access-llms) we explored how to access and interact with Large Language Models (LLMs) using providers like Amazon Bedrock. Now, we move on to the next step in building a RAG chatbot: preparing your data and generating vector embeddings.
 

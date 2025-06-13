@@ -19,7 +19,7 @@ tags:
 description: "Learn how to access Large Language Models through AWS Bedrock and OpenAI for building RAG chatbots"
 ---
 
-# 🧠 Part 1: Accessing LLMs
+# 🧠 Accessing LLMs
 
 Welcome to **RAG to Riches**, a series where we'll explore the key components involved in building a RAG (Retrieval-Augmented Generation) chatbot. Whether you're new to the space or looking to solidify your understanding, this series will walk through each building block — with hands-on code, real-world use cases, and lessons learned.
 

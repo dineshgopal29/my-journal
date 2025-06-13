@@ -87,7 +87,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
       </div>
       <div className="card__body">
         <p>Start with tutorials and guides</p>
-        <a href="/rag-to-riches/2025-05-21-rag-access-llms" className="button button--primary">View Guides</a>
+        <a href="/my-journal/rag-to-riches/2025-05-21-rag-access-llms" className="button button--primary">View Guides</a>
       </div>
     </div>
   </div>
@@ -98,7 +98,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
       </div>
       <div className="card__body">
         <p>Explore the latest blog posts</p>
-        <a href="/blog" className="button button--primary">Read Blog</a>
+        <a href="/my-journal/blog" className="button button--primary">Read Blog</a>
       </div>
     </div>
   </div>
