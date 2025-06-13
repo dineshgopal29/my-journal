@@ -75,8 +75,6 @@ const config: Config = {
         alt: 'AI Social Journal Logo',
         src: 'img/logo1.png',
       },
-      hideOnScroll: false,
-      style: 'primary',
       items: [
         {
           type: 'docSidebar',

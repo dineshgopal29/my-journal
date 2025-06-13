@@ -13,7 +13,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  Create as many sidebars as you want.
  */
 const sidebars: SidebarsConfig = {
-  // Create a manual sidebar that only includes existing documents
+  // Create a manual sidebar that includes all documents
   tutorialSidebar: [
     {
       type: 'category',
@@ -21,6 +21,7 @@ const sidebars: SidebarsConfig = {
       items: [
         'rag-to-riches/2025-05-21-rag-access-llms',
         'rag-to-riches/2025-05-31-rag-data-setup',
+        'rag-to-riches/2025-06-10-rag-aws-knowledgebase',
       ],
     },
   ],
