@@ -17,3 +17,96 @@ hola:
   label: Hola
   permalink: /hola
   description: Hola tag description
+
+# AI and Research Tags
+AI:
+  label: AI
+  permalink: /ai
+  description: Artificial Intelligence posts
+
+Research:
+  label: Research
+  permalink: /research
+  description: Research and analysis posts
+
+Trends:
+  label: Trends
+  permalink: /trends
+  description: Technology and AI trends
+
+"2025":
+  label: "2025"
+  permalink: /2025
+  description: Posts from 2025
+
+Stanford:
+  label: Stanford
+  permalink: /stanford
+  description: Stanford research and reports
+
+"Global Policy":
+  label: Global Policy
+  permalink: /global-policy
+  description: AI policy and governance
+
+Investment:
+  label: Investment
+  permalink: /investment
+  description: AI investment and funding
+
+"Responsible AI":
+  label: Responsible AI
+  permalink: /responsible-ai
+  description: Responsible AI development
+
+# LLM and Development Tags
+LLM:
+  label: LLM
+  permalink: /llm
+  description: Large Language Models
+
+Chatbot:
+  label: Chatbot
+  permalink: /chatbot
+  description: Chatbot development
+
+"Prompt-Engineering":
+  label: Prompt Engineering
+  permalink: /prompt-engineering
+  description: Prompt engineering techniques
+
+GenerativeAI:
+  label: Generative AI
+  permalink: /generative-ai
+  description: Generative AI applications
+
+ChainOfThought:
+  label: Chain of Thought
+  permalink: /chain-of-thought
+  description: Chain of thought reasoning
+
+TreeOfThought:
+  label: Tree of Thought
+  permalink: /tree-of-thought
+  description: Tree of thought reasoning
+
+ReActAgents:
+  label: ReAct Agents
+  permalink: /react-agents
+  description: ReAct agent frameworks
+
+# Game Development Tags
+GenAI:
+  label: GenAI
+  permalink: /genai
+  description: Generative AI applications
+
+"Vibe Coding":
+  label: Vibe Coding
+  permalink: /vibe-coding
+  description: Creative coding and development
+
+"Amazon Q CLI":
+  label: Amazon Q CLI
+  permalink: /amazon-q-cli
+  description: Amazon Q command line interface
