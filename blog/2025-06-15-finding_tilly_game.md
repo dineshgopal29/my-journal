@@ -1278,6 +1278,23 @@ We conducted testing with children of different ages and received valuable insig
 - Children were excited by the bonus questions and felt a sense of accomplishment when solving them
 - Parents appreciated being able to select the appropriate difficulty level
 
+### Screenshots from the Games
+
+![Login Screen](/img/p1.png)
+*Fig 1: Login Screen*
+
+![Puzzle Screen](/img/p2.png)
+*Fig 2: Puzzle Screen*
+
+![Game Progress](/img/p3.png)
+*Fig 3: Game Progress*
+
+![Puzzle Completion](/img/p4.png)
+*Fig 4: Puzzle Completion*
+
+![Bonus Round](/img/p5.png)
+*Fig 5: Bonus Round*
+
 ### Next Steps
 
 As we continue to refine the Finding Tilly educational game, our next steps include:
