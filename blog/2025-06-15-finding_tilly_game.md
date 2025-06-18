@@ -1278,7 +1278,7 @@ We conducted testing with children of different ages and received valuable insig
 - Children were excited by the bonus questions and felt a sense of accomplishment when solving them
 - Parents appreciated being able to select the appropriate difficulty level
 
-### Screenshots from the Games
+### Screenshots from the Game
 
 ![Login Screen](/img/p1.png)
 *Fig 1: Login Screen*
