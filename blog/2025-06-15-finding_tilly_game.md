@@ -1305,6 +1305,8 @@ As we continue to refine the Finding Tilly educational game, our next steps incl
 4. **Multiplayer Mode**: Allow siblings or classmates to play together
 5. **Customizable Content**: Let parents or teachers add their own educational content
 
+You can access the full code on GitHub [here](https://github.com/dineshgopal29/finding-tilly).
+
 ---
 
 *This development blog will continue to be updated as we further enhance "Finding Tilly" with additional features and refinements.*
