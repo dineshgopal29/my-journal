@@ -110,3 +110,34 @@ GenAI:
   label: Amazon Q CLI
   permalink: /amazon-q-cli
   description: Amazon Q command line interface
+
+# RAG and Responsible AI Tags
+RAG:
+  label: RAG
+  permalink: /rag
+  description: Retrieval-Augmented Generation
+
+LangChain:
+  label: LangChain
+  permalink: /langchain
+  description: LangChain framework
+
+LLMs:
+  label: LLMs
+  permalink: /llms
+  description: Large Language Models
+
+"AWS Bedrock":
+  label: AWS Bedrock
+  permalink: /aws-bedrock
+  description: AWS Bedrock AI service
+
+"AI Ethics":
+  label: AI Ethics
+  permalink: /ai-ethics
+  description: AI ethics and responsible development
+
+Evaluation:
+  label: Evaluation
+  permalink: /evaluation
+  description: AI model evaluation and metrics
