@@ -141,3 +141,29 @@ Evaluation:
   label: Evaluation
   permalink: /evaluation
   description: AI model evaluation and metrics
+
+# Additional Responsible AI Tags
+"AWS Guardrails":
+  label: AWS Guardrails
+  permalink: /aws-guardrails
+  description: AWS Guardrails for AI safety
+
+"Generative AI":
+  label: Generative AI
+  permalink: /generative-ai-alt
+  description: Generative artificial intelligence
+
+RAGAS:
+  label: RAGAS
+  permalink: /ragas
+  description: RAG evaluation framework
+
+OpenEval:
+  label: OpenEval
+  permalink: /openeval
+  description: Open evaluation frameworks
+
+"RAG Evaluation":
+  label: RAG Evaluation
+  permalink: /rag-evaluation
+  description: Evaluation methods for RAG systems

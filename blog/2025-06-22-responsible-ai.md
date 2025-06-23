@@ -2,8 +2,8 @@
 slug: responsible-ai
 title: "RAG Responsibly: Building AI Systems That Are Ethical, Reliable, and Trustworthy"
 authors: [dgopal]
-tags: [Responsible AI, AWS Gaurdrails, AWS Bedrock, genrative AI, RAGAS, openEval, AI Ethics, RAG Evaluation]
-date: 2025-06-23
+tags: ["Responsible AI", "AWS Guardrails", "AWS Bedrock", "Generative AI", "RAGAS", "OpenEval", "AI Ethics", "RAG Evaluation"]
+date: 2025-06-22
 description: "A guide to implementing responsible AI practices in RAG applications using prompt validation, evaluation metrics, and logging."
 image: /img/logo1.png
 ---
