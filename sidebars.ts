@@ -22,6 +22,7 @@ const sidebars: SidebarsConfig = {
         'rag-to-riches/2025-05-21-rag-access-llms',
         'rag-to-riches/2025-05-31-rag-data-setup',
         'rag-to-riches/2025-06-10-rag-aws-knowledgebase',
+        'rag-to-riches/2025-06-28-responsible-ai-aws-guardrails',
       ],
     },
   ],

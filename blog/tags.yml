@@ -167,3 +167,24 @@ OpenEval:
   label: RAG Evaluation
   permalink: /rag-evaluation
   description: Evaluation methods for RAG systems
+
+# AWS Guardrails Tags  
+Guardrails:
+  label: Guardrails
+  permalink: /guardrails
+  description: AWS Guardrails for AI safety
+
+"Context Validation":
+  label: Context Validation
+  permalink: /context-validation
+  description: Context and content validation
+
+"Prompt Injection":
+  label: Prompt Injection
+  permalink: /prompt-injection
+  description: Prompt injection prevention and security
+
+Streamlit:
+  label: Streamlit
+  permalink: /streamlit
+  description: Streamlit app development
