@@ -53,6 +53,8 @@ This is where governance becomes critical.
 
 ---
 
+<!-- truncate -->
+
 ## 🛠️ AI Governance Framework for a RAG Chatbot
 
 Here’s a structured, step-by-step process to apply AI governance:
