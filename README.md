@@ -33,7 +33,7 @@ Welcome to the **AI Social Journal** – a personal space where I document my jo
 
 ## 🌐 Live Site
 
-Visit the live journal at: **[https://dineshgopal29.github.io/my-journal/](https://dineshgopal29.github.io/my-journal/)**
+Visit the live journal at: **[https://aisocialjournal.com](https://aisocialjournal.com)**
 
 ## 📖 Featured Content
 
@@ -110,7 +110,7 @@ This is a personal journal, but I welcome:
 
 ## 📬 Connect
 
-- **Blog**: [AI Social Journal](https://dineshgopal29.github.io/my-journal/)
+- **Blog**: [AI Social Journal](https://aisocialjournal.com)
 - **GitHub**: [@dineshgopal29](https://github.com/dineshgopal29)
 - **Email**: [Contact me](mailto:your-email@example.com)
 
