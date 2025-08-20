@@ -38,15 +38,34 @@ Visit the live journal at: **[https://aisocialjournal.com](https://aisocialjourn
 ## 📖 Featured Content
 
 ### Recent Posts
-- 🛡️ **Building Responsible AI Apps with AWS Guardrails** - Learn to enforce safety in RAG applications
+- � **Securing RAG & Agentic Chatbots with OWASP LLM Top 10** - Comprehensive security framework for AI applications
+- 🏛️ **Getting Started with AI Governance in an Enterprise** - Practical AI governance implementation guide
+- 📊 **RAG Evaluation Framework** - A practical guide to evaluating RAG systems with AWS Bedrock
+- �🛡️ **Building Responsible AI Apps with AWS Guardrails** - Learn to enforce safety in RAG applications
 - 🎮 **Finding Tilly: Educational Game Development** - AI-assisted game creation for kids
-- 📊 **RAG Application Using AWS Knowledge Base** - Serverless RAG with managed services
-- 🔍 **State of AI 2025** - Analysis of Stanford's latest AI Index Report
 
 ### Tutorial Series
 - **RAG to Riches**: Complete guide to building enterprise RAG systems
+- **AI Security & Governance**: OWASP LLM Top 10 and enterprise governance frameworks
 - **Responsible AI Practices**: Framework for ethical AI development
 - **AWS AI Services**: Practical tutorials for cloud-based AI solutions
+
+## 🎯 Key Topics Covered
+
+### 🔐 AI Security & Governance
+- **OWASP LLM Top 10**: Security framework for AI applications
+- **Enterprise AI Governance**: Practical implementation strategies
+- **Responsible AI**: Ethical development practices and compliance
+
+### 🏗️ RAG Implementation
+- **End-to-end RAG Systems**: From data ingestion to production
+- **AWS Knowledge Bases**: Serverless RAG with managed services
+- **Evaluation Frameworks**: Measuring and improving RAG performance
+
+### ☁️ Cloud AI Platforms
+- **AWS Bedrock**: Foundation models and custom applications
+- **OpenSearch Serverless**: Vector databases and semantic search
+- **Guardrails**: Safety mechanisms for AI applications
 
 ## 🚀 Getting Started
 
@@ -70,7 +89,7 @@ npm install
 npm start
 ```
 
-The site will be available at `http://localhost:3000/my-journal/`
+The site will be available at `http://localhost:3000/`
 
 ### Building for Production
 
@@ -86,7 +105,11 @@ npm run serve
 
 ```
 my-journal/
-├── blog/                 # Blog posts
+├── blog/                 # Blog posts and articles
+│   ├── 2025-08-19-building-secure-responsible-ai-apps.md
+│   ├── 2025-07-22-ai-governance-getting-started.md
+│   ├── authors.yml      # Author information
+│   └── tags.yml         # Blog post tags and categories
 ├── docs/                 # Documentation and tutorials
 │   └── rag-to-riches/   # RAG tutorial series
 ├── src/                  # React components and pages
@@ -94,7 +117,8 @@ my-journal/
 │   ├── css/            # Custom styles
 │   └── pages/          # Static pages
 ├── static/              # Static assets (images, files)
-│   └── img/            # Images and diagrams
+│   ├── img/            # Images and diagrams
+│   └── CNAME           # Custom domain configuration
 ├── docusaurus.config.ts # Site configuration
 ├── sidebars.ts         # Sidebar navigation
 └── package.json        # Dependencies and scripts
