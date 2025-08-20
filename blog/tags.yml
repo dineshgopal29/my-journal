@@ -188,3 +188,13 @@ Streamlit:
   label: Streamlit
   permalink: /streamlit
   description: Streamlit app development
+
+"OWASP LLM TOP 10":
+  label: "OWASP LLM TOP 10"
+  permalink: /owasp-llm-top-10
+  description: OWASP Top 10 security framework for Large Language Model applications
+
+"AI Governance":
+  label: "AI Governance"
+  permalink: /ai-governance
+  description: AI governance frameworks, policies, and best practices for enterprise AI deployment
