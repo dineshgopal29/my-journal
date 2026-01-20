@@ -67,7 +67,7 @@ As I dive deeper into AI — from building Retrieval-Augmented Generation (RAG) 
 Whether you're new to AI, an experienced developer, or just curious about where this field is heading, I hope you find something useful, inspiring, or thought-provoking here.
 
 :::tip Get Started
-Ready to dive in? Check out the [RAG to Riches Guides](/rag-to-riches/2025-05-21-rag-access-llms) section or browse the latest [Blog Posts](/blog) to see what I've been working on lately.
+Ready to dive in? Check out the [RAG to Riches Guides](/rag-to-riches/2025-05-21-rag-access-llms) section, explore [The Agentic Advantage](/the-agentic-advantage/2026-01-19-understanding-agentic-patterns) for insights on building AI agents, or browse the latest [Blog Posts](/blog) to see what I've been working on lately.
 :::
 
 :::info Stay Connected
@@ -87,7 +87,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
       </div>
       <div className="card__body">
         <p>Start with tutorials and guides</p>
-        <a href="/my-journal/rag-to-riches/2025-05-21-rag-access-llms" className="button button--primary">View Guides</a>
+        <a href="/rag-to-riches/2025-05-21-rag-access-llms" className="button button--primary">View Guides</a>
       </div>
     </div>
   </div>
@@ -98,7 +98,7 @@ import {useCurrentSidebarCategory} from '@docusaurus/theme-common';
       </div>
       <div className="card__body">
         <p>Explore the latest blog posts</p>
-        <a href="/my-journal/blog" className="button button--primary">Read Blog</a>
+        <a href="/blog" className="button button--primary">Read Blog</a>
       </div>
     </div>
   </div>

@@ -1,0 +1,10 @@
+{
+  "label": "The Agentic Advantage",
+  "className": "agentic-advantage",
+  "collapsed": true,
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Explore what comes after RAG—designing, building, and operating agentic AI systems with autonomy, orchestration, guardrails, and real-world impact."
+  }
+}

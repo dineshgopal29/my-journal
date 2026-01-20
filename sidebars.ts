@@ -26,6 +26,13 @@ const sidebars: SidebarsConfig = {
         'rag-to-riches/2025-07-07-rag-evaluation-framework',
       ],
     },
+    {
+      type: 'category',
+      label: 'The Agentic Advantage',
+      items: [
+        'the-agentic-advantage/2026-01-19-understanding-agentic-patterns',
+      ],
+    },
   ],
 };
 

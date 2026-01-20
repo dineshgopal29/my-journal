@@ -8,6 +8,7 @@ Welcome to the **AI Social Journal** – a personal space where I document my jo
 
 ### 📚 **Comprehensive Guides**
 - **RAG to Riches Series**: Step-by-step tutorials on building production-ready RAG applications
+- **The Agentic Advantage**: Deep dive into building AI agents, design patterns, and agentic workflows
 - **AWS AI Services**: Hands-on guides for AWS Bedrock, Knowledge Bases, and Guardrails
 - **Responsible AI**: Best practices for building ethical, reliable, and trustworthy AI systems
 
@@ -38,6 +39,7 @@ Visit the live journal at: **[https://aisocialjournal.com](https://aisocialjourn
 ## 📖 Featured Content
 
 ### Recent Posts
+- 🤖 **Getting Started with Building AI Agents** - Introduction to agentic systems and design patterns using CrewAI
 - � **Securing RAG & Agentic Chatbots with OWASP LLM Top 10** - Comprehensive security framework for AI applications
 - 🏛️ **Getting Started with AI Governance in an Enterprise** - Practical AI governance implementation guide
 - 📊 **RAG Evaluation Framework** - A practical guide to evaluating RAG systems with AWS Bedrock
@@ -46,6 +48,7 @@ Visit the live journal at: **[https://aisocialjournal.com](https://aisocialjourn
 
 ### Tutorial Series
 - **RAG to Riches**: Complete guide to building enterprise RAG systems
+- **The Agentic Advantage**: Exploring AI agents, design patterns, and multi-agent systems
 - **AI Security & Governance**: OWASP LLM Top 10 and enterprise governance frameworks
 - **Responsible AI Practices**: Framework for ethical AI development
 - **AWS AI Services**: Practical tutorials for cloud-based AI solutions
@@ -56,6 +59,11 @@ Visit the live journal at: **[https://aisocialjournal.com](https://aisocialjourn
 - **OWASP LLM Top 10**: Security framework for AI applications
 - **Enterprise AI Governance**: Practical implementation strategies
 - **Responsible AI**: Ethical development practices and compliance
+
+### 🤖 Agentic Systems
+- **Agent Design Patterns**: Planning, reflection, tool-augmented, and multi-agent patterns
+- **Agentic Workflows**: Building autonomous systems that decide, act, and adapt
+- **Multi-Agent Orchestration**: Coordinating specialized agents for complex tasks
 
 ### 🏗️ RAG Implementation
 - **End-to-end RAG Systems**: From data ingestion to production
@@ -106,12 +114,14 @@ npm run serve
 ```
 my-journal/
 ├── blog/                 # Blog posts and articles
+│   ├── 2026-01-19-getting-started-with-agents.md
 │   ├── 2025-08-19-building-secure-responsible-ai-apps.md
 │   ├── 2025-07-22-ai-governance-getting-started.md
 │   ├── authors.yml      # Author information
 │   └── tags.yml         # Blog post tags and categories
 ├── docs/                 # Documentation and tutorials
-│   └── rag-to-riches/   # RAG tutorial series
+│   ├── rag-to-riches/   # RAG tutorial series
+│   └── the-agentic-advantage/ # AI agents and agentic systems
 ├── src/                  # React components and pages
 │   ├── components/      # Reusable components
 │   ├── css/            # Custom styles
