@@ -22,3 +22,6 @@ yarn-error.log*
 # Deployment files (local only)
 deploy.sh
 DEPLOYMENT.md
+
+# Claude Code
+CLAUDE.md
