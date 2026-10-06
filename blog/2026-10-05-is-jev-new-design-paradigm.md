@@ -306,9 +306,9 @@ The CLI it produced is on GitHub: [`triage.py`](https://github.com/dineshgopal29
 
 ## The Economics: Cheap Intelligence
 
-The headline benefit is cost. In my notes, input tokens are what you pay for, and **output tokens are cheap**, because the answers are short, typed values rather than paragraphs of prose.
+The headline benefit is cost. TypeSafe's [models page](https://docs.typesafe.ai/models) lists Jev 1.13 at **$0.042 per million input tokens** ($42 per billion), and **output tokens are free**. The answers are short, typed values rather than paragraphs of prose, so the input is what you pay for.
 
-<!-- TODO: confirm the exact per-token pricing on the TypeSafe pricing page before publishing, my handwritten note is ambiguous on units. -->
+To put that in loan-processing terms: my Playground run above used 531 input tokens. At that size, **a million emails would cost roughly $22**. (Pricing and rate limits can change, so check the models page before you plan around the numbers.)
 
 Cheap enough that you can run a classifier over your **entire catalog** (every email, every document, every claim note) instead of sampling. Jev means cheap intelligence.
 
@@ -326,7 +326,7 @@ For **complex decisions, a large LLM still wins**. A credit decision on a compli
 
 ---
 
-## So, a New Design Paradigm?
+## Where Jev Fits in Your Stack
 
 I'd say it is a genuinely useful **new layer**, rather than a replacement for what we have:
 
