@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 160" role="img" aria-label="Deterministic code, then LLMs, then a general-purpose classifier (Jev)">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="760" height="160" rx="12" fill="#f8fafc"/>
+  <g font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">
+    <rect x="24" y="40" width="200" height="80" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+    <text x="124" y="76" font-size="17" font-weight="600" fill="#0f172a">Deterministic code</text>
+    <text x="124" y="99" font-size="13" fill="#475569">rules and control flow</text>
+
+    <rect x="280" y="40" width="200" height="80" rx="10" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.5"/>
+    <text x="380" y="76" font-size="17" font-weight="600" fill="#0f172a">LLMs</text>
+    <text x="380" y="99" font-size="13" fill="#475569">deep reasoning, slower, costlier</text>
+
+    <rect x="536" y="40" width="200" height="80" rx="10" fill="#4f46e5" stroke="#3730a3" stroke-width="1.5"/>
+    <text x="636" y="76" font-size="17" font-weight="600" fill="#ffffff">Jev</text>
+    <text x="636" y="99" font-size="13" fill="#e0e7ff">general-purpose classifier</text>
+  </g>
+  <path d="M226 80H278" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M482 80H534" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+</svg>

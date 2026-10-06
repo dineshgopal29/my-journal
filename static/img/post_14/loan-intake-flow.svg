@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 340" role="img" aria-label="A borrower email or document goes to Jev, which routes it to the underwriting queue, a self-service reply, the specialist team, or a large LLM or human review when confidence is low">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="800" height="340" rx="12" fill="#f8fafc"/>
+  <g font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif" text-anchor="middle">
+    <rect x="20" y="125" width="150" height="90" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+    <text x="95" y="162" font-size="15" font-weight="600" fill="#0f172a">Borrower email</text>
+    <text x="95" y="183" font-size="15" font-weight="600" fill="#0f172a">/ document</text>
+
+    <rect x="240" y="125" width="130" height="90" rx="10" fill="#4f46e5" stroke="#3730a3" stroke-width="1.5"/>
+    <text x="305" y="165" font-size="17" font-weight="600" fill="#ffffff">Jev</text>
+    <text x="305" y="187" font-size="13" fill="#e0e7ff">classify</text>
+
+    <rect x="560" y="22" width="220" height="56" rx="10" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.5"/>
+    <text x="670" y="56" font-size="15" font-weight="600" fill="#0f172a">Underwriting queue</text>
+    <rect x="560" y="102" width="220" height="56" rx="10" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.5"/>
+    <text x="670" y="136" font-size="15" font-weight="600" fill="#0f172a">Self-service reply</text>
+    <rect x="560" y="182" width="220" height="56" rx="10" fill="#e0e7ff" stroke="#4f46e5" stroke-width="1.5"/>
+    <text x="670" y="216" font-size="15" font-weight="600" fill="#0f172a">Specialist team</text>
+    <rect x="560" y="262" width="220" height="56" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+    <text x="670" y="296" font-size="15" font-weight="600" fill="#0f172a">Large LLM or human review</text>
+
+    <g font-size="12.5" fill="#334155" text-anchor="middle">
+      <text x="465" y="42">new application</text>
+      <text x="465" y="108">status inquiry</text>
+      <text x="465" y="188">hardship</text>
+      <text x="465" y="270">low confidence</text>
+    </g>
+  </g>
+  <path d="M172 170H238" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M372 155C440 155 440 50 558 50" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M372 163C440 163 440 130 558 130" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M372 177C440 177 440 210 558 210" fill="none" stroke="#64748b" stroke-width="2" marker-end="url(#a)"/>
+  <path d="M372 185C440 185 440 290 558 290" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#a)"/>
+</svg>
