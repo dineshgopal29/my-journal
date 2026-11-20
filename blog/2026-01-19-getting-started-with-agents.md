@@ -1,5 +1,6 @@
 ---
 title: "Getting Started with Building AI Agents"
+image: /img/social/getting-started-with-agents.png
 date: 2026-01-19
 authors:
   - dgopal
@@ -41,7 +42,7 @@ I’m starting a new series called **“The Agentic Advantage”**, where I’ll
 * Practical proofs of concept (POCs)
 * Lessons learned moving from demos to production
 
-If you’d like to catch up on my earlier posts, you can find them *[here](https://aisocialjournal.com)*.
+If you’d like to catch up on my earlier posts, you can find them *[on the AI Social Journal home page](https://aisocialjournal.com)*.
 
 
 Before we start building agents, it’s important to clearly understand **what an agent is not**.

@@ -18,6 +18,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'RAG to Riches',
+      link: {
+        type: 'generated-index',
+        slug: '/rag-to-riches',
+        title: 'RAG to Riches',
+        description:
+          'A hands-on series on building production-ready Retrieval-Augmented Generation (RAG) apps with AWS Bedrock: LLM access, data and embeddings, knowledge bases, guardrails, and evaluation.',
+      },
       items: [
         'rag-to-riches/2025-05-21-rag-access-llms',
         'rag-to-riches/2025-05-31-rag-data-setup',
@@ -29,6 +36,13 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'The Agentic Advantage',
+      link: {
+        type: 'generated-index',
+        slug: '/the-agentic-advantage',
+        title: 'The Agentic Advantage',
+        description:
+          'What comes after RAG: designing, building, and operating AI agents, from agentic design patterns to orchestration, guardrails, and real-world impact.',
+      },
       items: [
         'the-agentic-advantage/2026-01-19-understanding-agentic-patterns',
       ],

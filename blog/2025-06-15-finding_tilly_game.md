@@ -2,10 +2,10 @@
 slug: finding_tilly_game
 title: "Finding Tilly - Educational Kid-Friendly Web Game"
 authors: [dgopal]
-tags: [GenAI, Vibe Coding, Amazon Q CLI]
+tags: [Generative AI, Vibe Coding, Amazon Q CLI]
 date: 2025-06-15
 description: "Finding Tilly - Educational Kid-Friendly Web Game A fun and educational React-based game for young children to find Tilly by solving alphabet, number, and addition puzzles."
-image: /img/logo1.png
+image: /img/social/finding_tilly_game.png
 ---
 
 
@@ -1305,7 +1305,7 @@ As we continue to refine the Finding Tilly educational game, our next steps incl
 4. **Multiplayer Mode**: Allow siblings or classmates to play together
 5. **Customizable Content**: Let parents or teachers add their own educational content
 
-You can access the full code on GitHub [here](https://github.com/dineshgopal29/finding-tilly).
+You can access the full code on GitHub [the Finding Tilly GitHub repo](https://github.com/dineshgopal29/finding-tilly).
 
 ---
 

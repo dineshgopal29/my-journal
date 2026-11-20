@@ -1,5 +1,6 @@
 ---
 title: "Getting Started with AI Governance in a Enterprise"
+image: /img/social/ai-governance-getting-started.png
 date: 2025-07-22
 authors:
   - dgopal

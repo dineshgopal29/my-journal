@@ -1,5 +1,6 @@
 ---
 title: Securing RAG & Agentic Chatbots with OWASP LLM Top 10
+image: /img/social/building-secure-responsible-ai-apps.png
 authors:
   - dgopal
 categories:

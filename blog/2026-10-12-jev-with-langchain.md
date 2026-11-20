@@ -1,5 +1,6 @@
 ---
 title: "Using Jev With LangChain: Model Routing and Guardrails"
+image: /img/social/jev-with-langchain.png
 date: 2026-10-12
 authors:
   - dgopal

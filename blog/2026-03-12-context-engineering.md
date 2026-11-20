@@ -1,5 +1,6 @@
 ---
 title: "Context Engineering: The Missing Layer in Agentic Applications"
+image: /img/social/context-engineering.png
 date: 2026-03-12
 authors:
   - dgopal
@@ -22,7 +23,7 @@ description: "Learn what context engineering is, how to get started with it, and
 
 In this post from **The Agentic Advantage** series, we explore one of the most important — and often overlooked — aspects of building AI agents: **Context Engineering**.
 
-If you're new to agents, check out the previous post *[here](blog/2026-01-19-getting-started-with-agents.md)*. in the series to learn the basics of building agents.
+If you're new to agents, check out the previous post *[Getting Started with Building AI Agents](blog/2026-01-19-getting-started-with-agents.md)*. in the series to learn the basics of building agents.
 
 ---
 

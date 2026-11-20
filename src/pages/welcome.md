@@ -3,7 +3,7 @@ slug: /
 title: "Welcome to AI Social Journal"
 description: "A personal blog documenting my journey through the world of Artificial Intelligence - from RAG chatbots to agentic workflows."
 keywords: [AI, artificial intelligence, machine learning, RAG, chatbots, agentic workflows, tutorials]
-image: /img/logo1.png
+image: /img/social-card.png
 hide_table_of_contents: false
 ---
 
@@ -13,6 +13,14 @@ Welcome to **AI Social Journal**, a personal blog where I document my journey th
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Latest Posts
+
+import LatestPosts from '@site/src/components/LatestPosts';
+
+<LatestPosts count={3} />
+
+[See all posts →](/blog)
 
 ## Why This Journal?
 
@@ -66,13 +74,15 @@ As I dive deeper into AI — from building Retrieval-Augmented Generation (RAG) 
 
 Whether you're new to AI, an experienced developer, or just curious about where this field is heading, I hope you find something useful, inspiring, or thought-provoking here.
 
-:::tip Get Started
-Ready to dive in? Check out the [RAG to Riches Guides](/rag-to-riches/2025-05-21-rag-access-llms) section, explore [The Agentic Advantage](/the-agentic-advantage/2026-01-19-understanding-agentic-patterns) for insights on building AI agents, or browse the latest [Blog Posts](/blog) to see what I've been working on lately.
-:::
+<div className="alert alert--success" role="note">
+  <strong>Get Started</strong><br />
+  Ready to dive in? Check out the <a href="/rag-to-riches/2025-05-21-rag-access-llms">RAG to Riches Guides</a> section, explore <a href="/the-agentic-advantage/2026-01-19-understanding-agentic-patterns">The Agentic Advantage</a> for insights on building AI agents, or browse the latest <a href="/blog">Blog Posts</a> to see what I've been working on lately.
+</div>
 
-:::info Stay Connected
-This is a living journal that grows with every experiment and discovery. Bookmark this page and check back regularly for new insights and tutorials.
-:::
+<div className="alert alert--info margin-top--md margin-bottom--lg" role="note">
+  <strong>Stay Connected</strong><br />
+  This is a living journal that grows with every experiment and discovery. Bookmark this page and check back regularly for new insights and tutorials.
+</div>
 
 ## Quick Navigation
 

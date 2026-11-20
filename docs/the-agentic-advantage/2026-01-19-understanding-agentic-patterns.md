@@ -1,5 +1,6 @@
 ---
 title: "Understanding AI Agent & Design Patterns"
+image: /img/social/understanding-agentic-patterns.png
 date: 2026-01-19
 authors:
   - dgopal
