@@ -8,7 +8,13 @@ const urls=new Map();
   }}})('build');
 const list=[...urls.keys()]; console.log('external links:',list.length);
 const bad=[]; let i=0;
-async function chk(u){
+async function chk(u, attempt = 1){
+  const status = await chkOnce(u);
+  // One retry: external sites occasionally time out or rate-limit
+  if (status && attempt < 2) { await new Promise(r=>setTimeout(r,1500)); return chk(u, attempt + 1); }
+  return status;
+}
+async function chkOnce(u){
   for(const method of ['HEAD','GET']){
     try{const r=await fetch(u,{method,redirect:'follow',signal:AbortSignal.timeout(15000),headers:{'user-agent':'Mozilla/5.0 link-check'}});
       if(r.status<400) return null;
