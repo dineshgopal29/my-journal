@@ -1,5 +1,7 @@
 ---
+slug: meet-jev-system-one-model
 title: "Not Every Decision Needs an LLM: Meet Jev, a System One Model"
+image: /img/social/is-jev-new-design-paradigm.png
 date: 2026-10-05
 authors:
   - dgopal

@@ -4,6 +4,24 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
+// GitHub prism theme with a few token colors darkened to meet WCAG AA (4.5:1) on its #f6f8fa background
+const darkened: Record<string, string> = {
+  '#999988': '#717165',
+  '#e3116c': '#da1068',
+  '#36acaa': '#277c7a',
+  '#00a4db': '#0079a2',
+  '#d73a49': '#ce3846',
+};
+const githubAccessible: typeof prismThemes.github = {
+  ...prismThemes.github,
+  styles: prismThemes.github.styles.map((rule) => {
+    const color = rule.style.color;
+    return color && darkened[color]
+      ? {...rule, style: {...rule.style, color: darkened[color]}}
+      : rule;
+  }),
+};
+
 const config: Config = {
   title: 'AI Social Journal',
   tagline: 'Lets make sense of AI — together.',
@@ -30,7 +48,7 @@ const config: Config = {
   trailingSlash: false,
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenAnchors: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -38,6 +56,46 @@ const config: Config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+  },
+
+  plugins: [
+    './plugins/latest-posts.js',
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          // Jev post 1 was renamed from its date-based URL to a keyword slug
+          {
+            from: '/blog/2026/10/05/is-jev-new-design-paradigm',
+            to: '/blog/meet-jev-system-one-model',
+          },
+        ],
+      },
+    ],
+  ],
+
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        indexDocs: true,
+        indexBlog: true,
+        indexPages: true,
+        docsRouteBasePath: '/',
+        blogRouteBasePath: '/blog',
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+      },
+    ],
+  ],
+
+  markdown: {
+    // Keep legacy `<!-- ... -->` comments (e.g. `<!-- truncate -->` in docs) compiling.
+    mdx1Compat: {comments: true},
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
   },
 
   presets: [
@@ -68,12 +126,12 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/logo1.png',
+    image: 'img/social-card.png',
     navbar: {
       title: 'AI Social Journal',
       logo: {
         alt: 'AI Social Journal Logo',
-        src: 'img/logo1.png',
+        src: 'img/logo-nav.png',
       },
       items: [
         {
@@ -84,51 +142,41 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {to: '/about', label: 'About', position: 'left'},
+        {href: 'https://aisocialjournal.com/blog/rss.xml', label: 'RSS', position: 'right'},
+        {href: 'https://github.com/dineshgopal29', label: 'GitHub', position: 'right'},
       ],
     },
     footer: {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Guides',
           items: [
-            {
-              label: 'Guides',
-              to: '/rag-to-riches/2025-05-21-rag-access-llms',
-            },
+            {label: 'RAG to Riches', to: '/rag-to-riches'},
+            {label: 'The Agentic Advantage', to: '/the-agentic-advantage'},
           ],
         },
-/*         {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        }, */
         {
-          title: 'More',
+          title: 'Read',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
+            {label: 'Blog', to: '/blog'},
+            {label: 'All Topics', to: '/blog/tags'},
+            {label: 'About', to: '/about'},
+          ],
+        },
+        {
+          title: 'Follow',
+          items: [
+            {label: 'RSS Feed', href: 'https://aisocialjournal.com/blog/rss.xml'},
+            {label: 'LinkedIn', href: 'https://www.linkedin.com/in/dineshgopal1'},
+            {label: 'GitHub', href: 'https://github.com/dineshgopal29'},
           ],
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Dinesh Gopal, AI Social Journal.`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: githubAccessible,
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,

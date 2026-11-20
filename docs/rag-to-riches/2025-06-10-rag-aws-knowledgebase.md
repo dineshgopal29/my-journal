@@ -1,5 +1,6 @@
 ---
 title: "RAG Application Using AWS Knowledgebase"
+image: /img/social/rag-aws-knowledgebase.png
 date: 2025-06-12
 authors:
   - dgopal
@@ -240,4 +241,4 @@ If you're building AI copilots, knowledge agents, or internal AI search tools �
 ### 🔗 Resources
 
 - [📘 AWS Knowledge Base for Amazon Bedrock (Docs)](https://docs.aws.amazon.com/prescriptive-guidance/latest/retrieval-augmented-generation-options/rag-fully-managed-bedrock.html)
-- [📦 GitHub Code](https://github.com/dineshgopal29/rag-to-riches/blob/main/call-knowledgebase.py)
+- [📦 GitHub Code](https://github.com/dineshgopal29/rag-to-riches/blob/main/src/call-knowledgebase.py)

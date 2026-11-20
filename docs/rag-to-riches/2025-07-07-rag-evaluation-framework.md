@@ -1,5 +1,6 @@
 ---
 title: "RAG Evaluation Framework - A Practical Guide"
+image: /img/social/rag-evaluation-framework.png
 date: 2025-07-07
 authors:
   - dgopal

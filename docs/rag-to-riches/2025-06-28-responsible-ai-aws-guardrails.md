@@ -1,5 +1,6 @@
 ---
 title: "Building Responsible AI Apps with AWS Guardrails"
+image: /img/social/responsible-ai-aws-guardrails.png
 date: 2025-06-28
 author: dgopal
 categories: [AI, RAG, AWS]
@@ -150,7 +151,7 @@ Here’s how the app behaves:
 ## 📁 Full Codebase
 
 You can find the complete working example and integration code on GitHub:  
-🔗 [View on GitHub](https://github.com/dineshgopal29/rag-to-riches/tree/main/aws-guardrails)
+🔗 [View on GitHub](https://github.com/dineshgopal29/rag-to-riches/blob/main/src/guardrail_streamlit_app.py)
 
 ---
 

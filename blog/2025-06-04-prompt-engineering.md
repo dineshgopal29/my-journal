@@ -1,5 +1,6 @@
 ---
 title: "Prompt Engineering Techniques"
+image: /img/social/prompt-engineering.png
 date: 2025-06-04
 authors:
   - dgopal
@@ -11,7 +12,7 @@ tags:
   - LLM
   - Chatbot
   - Prompt-Engineering
-  - GenerativeAI
+  - Generative AI
   - ChainOfThought
   - TreeOfThought
   - ReActAgents
@@ -243,7 +244,7 @@ Prompt engineering is your superpower when working with LLMs. It's part design, 
 
 ## 📚 References
 
-* [Google Prompt Engineering Whitepaper (PDF)](https://www.gptaiflow.tech/assets/files/2025-01-18-pdf-1-TechAI-Goolge-whitepaper_Prompt%20Engineering_v4-af36dcc7a49bb7269a58b1c9b89a8ae1.pdf)
+* [Google Prompt Engineering Whitepaper (PDF)](https://www.kaggle.com/whitepaper-prompt-engineering)
 * [LangChain](https://www.langchain.com/)
 * [Vertex AI](https://cloud.google.com/vertex-ai)
 

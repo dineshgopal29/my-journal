@@ -1,5 +1,6 @@
 ---
 title: "Data Setup & Embeddings"
+image: /img/social/rag-data-setup.png
 date: 2025-05-31
 authors:
   - dgopal
@@ -245,7 +246,7 @@ Now that our embeddings are stored and indexed, we can query them — and pass t
 
 To demonstrate the pipeline, I’ve selected Google’s prompt engineering whitepaper as the input document — a detailed resource outlining advanced prompting strategies.
 
-> Document Source: [Google’s Prompt Engineering Whitepaper (PDF)](https://www.gptaiflow.tech/assets/files/2025-01-18-pdf-1-TechAI-Goolge-whitepaper_Prompt%20Engineering_v4-af36dcc7a49bb7269a58b1c9b89a8ae1.pdf)
+> Document Source: [Google’s Prompt Engineering Whitepaper (PDF)](https://www.kaggle.com/whitepaper-prompt-engineering)
 
 ```python
 # Prepare context
@@ -296,7 +297,7 @@ return answer
 
 **Response:** The RAG application successfully processes the query through the vector database, retrieves relevant context, and generates a comprehensive response highlighting the advantages of vector embeddings in semantic search and retrieval accuracy.
 
-You can access the full code on GitHub [here](https://github.com/dineshgopal29/rag-to-riches/blob/723509794ad55b11ad24384ab548a05033730690/datasetup.py).
+You can access the full code on GitHub ([view the code](https://github.com/dineshgopal29/rag-to-riches/blob/723509794ad55b11ad24384ab548a05033730690/datasetup.py)).
 
 ---
 

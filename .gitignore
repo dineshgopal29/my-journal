@@ -25,3 +25,7 @@ DEPLOYMENT.md
 
 # Claude Code
 CLAUDE.md
+
+# Editor workspace files
+*.code-workspace
+.playwright-mcp/

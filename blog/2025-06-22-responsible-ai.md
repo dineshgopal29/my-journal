@@ -5,7 +5,7 @@ authors: [dgopal]
 tags: ["Responsible AI", "AWS Guardrails", "AWS Bedrock", "Generative AI", "RAGAS", "OpenEval", "AI Ethics", "RAG Evaluation"]
 date: 2025-06-22
 description: "A guide to implementing responsible AI practices in RAG applications using prompt validation, evaluation metrics, and logging."
-image: /img/logo1.png
+image: /img/social/responsible-ai.png
 ---
 
 # ✅ RAG Responsibly: How to Build AI Systems That Are Ethical, Reliable, and Trustworthy
@@ -95,7 +95,7 @@ Enter **reranking**.
 
 #### 🔧 Tools for Reranking:
 - [Cohere Rerank](https://docs.cohere.com/docs/rerank)
-- [LangChain Retrievers + Rerankers](https://docs.langchain.com/docs/modules/data_connection/retrievers/re-ranking)
+- [LangChain Retrievers + Rerankers](https://docs.langchain.com/oss/python/langchain/retrieval)
 
 ✅ This extra layer boosts **faithfulness**, **response relevancy**, and **hallucination resistance** — making your RAG system smarter and safer.
 
