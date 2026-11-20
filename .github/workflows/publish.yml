@@ -167,13 +167,27 @@ jobs:
           HOLD_LABEL=$(jq -r .holdLabel publishing/config.json)
           AUTO=$(jq -r .autoMerge publishing/config.json)
 
-          PRS=$(gh pr list --label "$RELEASE_LABEL" --state open --json number,title,labels,headRefName)
+          # Only ever merge a PR that this workflow's bot opened: same-repo branch named
+          # release/*, authored by github-actions. A label alone is not enough to authorise a merge.
+          PRS=$(gh pr list --label "$RELEASE_LABEL" --state open \
+            --json number,title,labels,headRefName,author,isCrossRepository \
+            | jq '[.[] | select(.isCrossRepository == false
+                  and (.headRefName | startswith("release/"))
+                  and (.author.login | test("^(app/)?github-actions(\\[bot\\])?$")))]')
           COUNT=$(echo "$PRS" | jq length)
           if [ "$COUNT" = "0" ]; then
-            echo "No open release PR (already merged, or nothing was due)." | tee -a "$GITHUB_STEP_SUMMARY"; exit 0
+            echo "No open release PR from the publisher bot (already merged, or nothing was due)." | tee -a "$GITHUB_STEP_SUMMARY"; exit 0
+          fi
+          if [ "$COUNT" != "1" ]; then
+            echo "::error::Expected exactly one release PR, found $COUNT. Not merging." ; exit 1
           fi
           NUM=$(echo "$PRS" | jq -r '.[0].number')
           TITLE=$(echo "$PRS" | jq -r '.[0].title')
+          # The diff must be a single blog/docs content file (what release.mjs edits)
+          FILES=$(gh pr diff "$NUM" --name-only)
+          if [ "$(echo "$FILES" | wc -l | tr -d ' ')" != "1" ] || ! echo "$FILES" | grep -Eq '^(blog|docs)/.+\.mdx?$'; then
+            echo "::error::PR #$NUM changes unexpected files; refusing to auto-merge:"; echo "$FILES"; exit 1
+          fi
           if echo "$PRS" | jq -e --arg h "$HOLD_LABEL" '.[0].labels | map(.name) | index($h)' >/dev/null; then
             echo "PR #$NUM is on hold; not merging." | tee -a "$GITHUB_STEP_SUMMARY"; exit 0
           fi
