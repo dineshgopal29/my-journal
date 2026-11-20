@@ -14,6 +14,8 @@ module.exports = function latestPostsPlugin(context) {
         .filter((f) => /^\d{4}-\d{2}-\d{2}-.+\.mdx?$/.test(f))
         .map((f) => {
           const {data} = matter(fs.readFileSync(path.join(dir, f), 'utf8'));
+          // Queued (draft) and unlisted posts must never be linked from the homepage
+          if (data.draft === true || data.unlisted === true) return null;
           const date = new Date(data.date || f.slice(0, 10));
           // Docusaurus default permalink is /blog/YYYY/MM/DD/<name>; an explicit slug replaces the whole path.
           const name = f.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.mdx?$/, '');
@@ -27,6 +29,7 @@ module.exports = function latestPostsPlugin(context) {
             date: date.toISOString(),
           };
         })
+        .filter(Boolean)
         .sort((a, b) => b.date.localeCompare(a.date));
       return posts;
     },

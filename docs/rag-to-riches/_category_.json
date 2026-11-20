@@ -5,6 +5,8 @@
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "Learn about RAG (Retrieval-Augmented Generation) concepts, implementation, and best practices."
+    "slug": "/rag-to-riches",
+    "title": "RAG to Riches",
+    "description": "A hands-on series on building production-ready Retrieval-Augmented Generation (RAG) apps with AWS Bedrock: LLM access, data and embeddings, knowledge bases, guardrails, and evaluation."
   }
 }

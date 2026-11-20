@@ -1,0 +1,190 @@
+name: Publish queue
+
+# Releases the next queued post (a post merged with `draft: true`) on a fixed cadence.
+#   Tuesday 08:00 America/Chicago  -> open a release PR (flips draft off, stamps the date)
+#   Tuesday 20:00 America/Chicago  -> merge it (unless labelled `hold`) and deploy
+# Cadence, hours and auto-merge live in publishing/config.json.
+# GitHub cron runs in UTC, so each slot is scheduled twice (CST and CDT) and the
+# "decide" step checks the real Chicago time. Both steps are idempotent.
+
+on:
+  schedule:
+    - cron: '0 13,14 * * 2' # 08:00 Chicago (CDT / CST)
+    - cron: '0 1,2 * * 3'   # 20:00 Chicago (CDT / CST)
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'open = create the release PR, merge = merge the open release PR and deploy'
+        type: choice
+        options: [open, merge]
+        default: open
+      force:
+        description: 'Ignore the release interval (publish the next queued post now)'
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Report only: no branch, PR, merge or deploy'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: publish-queue
+  cancel-in-progress: false
+
+env:
+  GH_TOKEN: ${{ github.token }}
+  NODE_OPTIONS: --max_old_space_size=6144
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Decide what to do
+        id: decide
+        run: |
+          TZ_NAME=$(jq -r .timezone publishing/config.json)
+          OPEN_H=$(jq -r .prOpenHourLocal publishing/config.json)
+          DEPLOY_H=$(jq -r .deployHourLocal publishing/config.json)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            ACTION="${{ inputs.action }}"
+            DRY="${{ inputs.dry_run }}"
+            FORCE="${{ inputs.force }}"
+          else
+            DOW=$(TZ=$TZ_NAME date +%u)   # 2 = Tuesday
+            HOUR=$((10#$(TZ=$TZ_NAME date +%H)))
+            ACTION=skip; DRY=false; FORCE=false
+            if [ "$DOW" = "2" ]; then
+              if [ "$HOUR" -ge "$OPEN_H" ] && [ "$HOUR" -lt $((OPEN_H+3)) ]; then ACTION=open; fi
+              if [ "$HOUR" -ge "$DEPLOY_H" ] && [ "$HOUR" -lt $((DEPLOY_H+3)) ]; then ACTION=merge; fi
+            fi
+          fi
+          echo "action=$ACTION" >> "$GITHUB_OUTPUT"
+          echo "dry=$DRY" >> "$GITHUB_OUTPUT"
+          echo "force=$FORCE" >> "$GITHUB_OUTPUT"
+          echo "Decided: action=$ACTION dry_run=$DRY force=$FORCE ($(TZ=$TZ_NAME date))" | tee -a "$GITHUB_STEP_SUMMARY"
+
+      # ---------------------------------------------------------------- open the release PR
+      - uses: actions/setup-node@v4
+        if: steps.decide.outputs.action == 'open'
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Release next queued post and open PR
+        if: steps.decide.outputs.action == 'open'
+        run: |
+          set -euo pipefail
+          RELEASE_LABEL=$(jq -r .releaseLabel publishing/config.json)
+          MIN_QUEUE=$(jq -r .minQueueSize publishing/config.json)
+          DEPLOY_H=$(jq -r .deployHourLocal publishing/config.json)
+          AUTO=$(jq -r .autoMerge publishing/config.json)
+          HOLD_LABEL=$(jq -r .holdLabel publishing/config.json)
+
+          EXISTING=$(gh pr list --label "$RELEASE_LABEL" --state open --json number --jq 'length')
+          if [ "$EXISTING" != "0" ]; then
+            echo "A release PR is already open; nothing to do." | tee -a "$GITHUB_STEP_SUMMARY"; exit 0
+          fi
+
+          npm ci
+          ARGS=""
+          [ "${{ steps.decide.outputs.force }}" = "true" ] && ARGS="--force"
+          [ "${{ steps.decide.outputs.dry }}" = "true" ] && ARGS="$ARGS --dry-run"
+          RESULT=$(node scripts/publish/release.mjs $ARGS | tail -n 1)
+          echo "$RESULT" | jq . | tee -a "$GITHUB_STEP_SUMMARY"
+
+          # Queue running low? (one open issue at a time)
+          QUEUE=$(echo "$RESULT" | jq -r .queueSize)
+          LEFT=$QUEUE; [ "$(echo "$RESULT" | jq -r .due)" = "true" ] && LEFT=$((QUEUE-1))
+          if [ "$LEFT" -lt "$MIN_QUEUE" ] && [ "${{ steps.decide.outputs.dry }}" != "true" ]; then
+            gh label create queue-low --color D93F0B --description "Publishing queue is running low" 2>/dev/null || true
+            if [ "$(gh issue list --label queue-low --state open --json number --jq 'length')" = "0" ]; then
+              gh issue create --label queue-low --title "Publishing queue is running low ($LEFT left after the next release)" \
+                --body "Drop new drafts in drafts/inbox/ and run /publish-post. Cadence is set in publishing/config.json."
+            fi
+          fi
+
+          [ "$(echo "$RESULT" | jq -r .due)" = "true" ] || exit 0
+          [ "${{ steps.decide.outputs.dry }}" = "true" ] && { echo "Dry run: stopping before branch/PR." ; exit 0; }
+
+          TITLE=$(echo "$RESULT" | jq -r .title)
+          FILE=$(echo "$RESULT" | jq -r .file)
+          PERMALINK=$(echo "$RESULT" | jq -r .permalink)
+          SOCIAL=$(echo "$RESULT" | jq -r .socialFile)
+          SLUG=$(basename "$FILE" | sed -E 's/\.mdx?$//; s/^[0-9]{4}-[0-9]{2}-[0-9]{2}-//')
+
+          # Gate: the released post must lint and build before a PR is opened
+          npm run lint:content -- "$FILE"
+          npm run build
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          BRANCH="release/$SLUG"
+          git switch -c "$BRANCH"
+          git add -A -- blog docs
+          git commit -m "Publish: $TITLE"
+          git push -u origin "$BRANCH"
+
+          gh label create "$RELEASE_LABEL" --color 5319E7 --description "Scheduled release of a queued post" 2>/dev/null || true
+          gh label create "$HOLD_LABEL" --color FBCA04 --description "Skip the scheduled merge for this release" 2>/dev/null || true
+
+          {
+            echo "Releases **$TITLE** from the publishing queue."
+            echo
+            echo "- Live URL once deployed: https://aisocialjournal.com$PERMALINK"
+            if [ "$AUTO" = "true" ]; then
+              echo "- **Auto-merge at ${DEPLOY_H}:00 America/Chicago today.** Add the \`$HOLD_LABEL\` label (or close this PR) to stop it, or merge it yourself any time to publish immediately."
+            else
+              echo "- Auto-merge is off: merge this PR when you want the post to go live (merging deploys it)."
+            fi
+            echo "- Build and content lint passed on this commit before the PR was opened."
+            echo "- Remaining in queue after this release: $(echo "$RESULT" | jq -r .remainingAfter)"
+            if [ -f "$SOCIAL" ]; then
+              echo
+              echo "## Share it"
+              echo
+              cat "$SOCIAL"
+            fi
+          } > /tmp/pr-body.md
+          gh pr create --base main --head "$BRANCH" --title "Publish: $TITLE" --body-file /tmp/pr-body.md --label "$RELEASE_LABEL"
+
+      # ---------------------------------------------------------------- merge + deploy
+      - name: Merge the release PR and deploy
+        if: steps.decide.outputs.action == 'merge'
+        run: |
+          set -euo pipefail
+          RELEASE_LABEL=$(jq -r .releaseLabel publishing/config.json)
+          HOLD_LABEL=$(jq -r .holdLabel publishing/config.json)
+          AUTO=$(jq -r .autoMerge publishing/config.json)
+
+          PRS=$(gh pr list --label "$RELEASE_LABEL" --state open --json number,title,labels,headRefName)
+          COUNT=$(echo "$PRS" | jq length)
+          if [ "$COUNT" = "0" ]; then
+            echo "No open release PR (already merged, or nothing was due)." | tee -a "$GITHUB_STEP_SUMMARY"; exit 0
+          fi
+          NUM=$(echo "$PRS" | jq -r '.[0].number')
+          TITLE=$(echo "$PRS" | jq -r '.[0].title')
+          if echo "$PRS" | jq -e --arg h "$HOLD_LABEL" '.[0].labels | map(.name) | index($h)' >/dev/null; then
+            echo "PR #$NUM is on hold; not merging." | tee -a "$GITHUB_STEP_SUMMARY"; exit 0
+          fi
+          if [ "$AUTO" != "true" ]; then
+            echo "autoMerge is off; leaving PR #$NUM for you to merge." | tee -a "$GITHUB_STEP_SUMMARY"; exit 0
+          fi
+          if [ "${{ steps.decide.outputs.dry }}" = "true" ]; then
+            echo "Dry run: would merge PR #$NUM ($TITLE) and dispatch deploy." | tee -a "$GITHUB_STEP_SUMMARY"; exit 0
+          fi
+
+          gh pr merge "$NUM" --squash --delete-branch
+          # Merges made with GITHUB_TOKEN do not trigger the deploy workflow's push trigger
+          gh workflow run deploy.yml --ref main
+          echo "Merged PR #$NUM ($TITLE) and started the deploy." | tee -a "$GITHUB_STEP_SUMMARY"

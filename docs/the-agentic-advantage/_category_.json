@@ -5,6 +5,8 @@
   "position": 3,
   "link": {
     "type": "generated-index",
-    "description": "Explore what comes after RAG—designing, building, and operating agentic AI systems with autonomy, orchestration, guardrails, and real-world impact."
+    "slug": "/the-agentic-advantage",
+    "title": "The Agentic Advantage",
+    "description": "What comes after RAG: designing, building, and operating AI agents, from agentic design patterns to orchestration, guardrails, and real-world impact."
   }
 }

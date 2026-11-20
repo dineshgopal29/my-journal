@@ -20,5 +20,9 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run typecheck
+      # Frontmatter, tags, images, placeholders (queued posts are held to a stricter standard)
+      - run: npm run lint:content
       # Fails on broken internal links (onBrokenLinks: 'throw') and bad MDX
       - run: npm run build
+      # Production builds skip draft posts, so build the queued ones as if released
+      - run: npm run check:drafts

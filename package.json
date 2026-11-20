@@ -14,13 +14,19 @@
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
     "check:links": "node scripts/check-external-links.mjs",
-    "fresh": "scripts/fresh-start.sh"
+    "fresh": "scripts/fresh-start.sh",
+    "lint:content": "node scripts/publish/lint-content.mjs",
+    "queue": "node scripts/publish/queue.mjs",
+    "release:dry": "node scripts/publish/release.mjs --dry-run",
+    "check:drafts": "node scripts/publish/check-drafts-build.mjs",
+    "card": "python3 scripts/publish/social-card.py"
   },
   "dependencies": {
     "@docusaurus/core": "^3.10.2",
     "@docusaurus/faster": "^3.10.2",
     "@docusaurus/plugin-client-redirects": "^3.10.2",
     "@docusaurus/preset-classic": "^3.10.2",
+    "@docusaurus/theme-mermaid": "^3.10.2",
     "@easyops-cn/docusaurus-search-local": "^0.55.3",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",

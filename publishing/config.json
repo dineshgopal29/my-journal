@@ -1,0 +1,12 @@
+{
+  "_comment": "Release cadence and behaviour. Edit values here; scripts and workflows read this file.",
+  "timezone": "America/Chicago",
+  "intervalDays": 14,
+  "releaseWeekday": "Tuesday",
+  "prOpenHourLocal": 8,
+  "deployHourLocal": 20,
+  "autoMerge": true,
+  "minQueueSize": 2,
+  "holdLabel": "hold",
+  "releaseLabel": "release"
+}
