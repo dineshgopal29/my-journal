@@ -24,6 +24,16 @@ const files = args.length ? args : [...walk('blog'), ...walk('docs')];
 const tagsYml = fs.readFileSync('blog/tags.yml', 'utf8');
 const knownTags = new Set(Object.keys(matter.engines.yaml.parse(tagsYml) || {}));
 
+
+// Structure rules per post_type (see .claude/skills/publish-post/templates/README.md)
+const TYPES = {
+  essay: {min: 1800, max: 3200, tldr: true, takeaways: true, limits: true, visual: true},
+  guide: {min: 1500, max: 3500, tldr: true, takeaways: true, limits: false, visual: true},
+  'field-notes': {min: 1200, max: 2600, tldr: true, takeaways: true, limits: false, visual: false},
+  reference: {min: 3000, max: 6500, tldr: true, takeaways: true, limits: false, visual: true},
+  'quick-take': {min: 500, max: 1100, tldr: false, takeaways: false, limits: false, visual: false},
+};
+
 const errors = [];
 const warnings = [];
 const slugs = new Map();
@@ -84,6 +94,25 @@ for (const f of files) {
   const fences = [...content.matchAll(/^```(\S*)\s*$/gm)];
   const opening = fences.filter((_, i) => i % 2 === 0);
   if (opening.some((m) => !m[1])) warn(f, 'code fence without a language tag');
+  // Post structure (queued posts are strict; published posts only get advice when they opt in via post_type)
+  if (data.post_type || queued) {
+    const spec = TYPES[data.post_type];
+    if (!spec) strict(`post_type must be one of ${Object.keys(TYPES).join(', ')} (got ${data.post_type ?? 'none'})`, warn);
+    else {
+      const prose = content.replace(/^```[\s\S]*?^```/gm, '');
+      const words = prose.split(/\s+/).filter(Boolean).length;
+      if (words < spec.min || words > spec.max) strict(`${words} words; ${data.post_type} posts run ${spec.min}-${spec.max}`, warn);
+      if (spec.tldr && !/^:::tip\s+TL;DR/m.test(content)) strict('missing a ":::tip TL;DR" box near the top', warn);
+      if (spec.takeaways && !/key takeaways/i.test(content)) strict('missing "Key takeaways" in the wrap-up', warn);
+      if (spec.limits && !/^##\s+(what .+ is not|when not to use|limits|trade-?offs)/im.test(content))
+        strict('missing a limits section (e.g. "What X is not" / "When not to use it")', warn);
+      if (spec.visual && !/!\[|```mermaid/.test(content)) strict('no figure or Mermaid diagram', warn);
+      if ((content.match(/^##\s+/gm) || []).length < 3) strict('fewer than 3 H2 sections', warn);
+    }
+  }
+  // Style rules (advice everywhere)
+  if (/^#{2,3}\s+[^\w\s#]/m.test(content.replace(/^```[\s\S]*?^```/gm, ''))) warn(f, 'emoji at the start of a heading (house style: plain headings)');
+  if (/\[(here|click here|read more|this link)\]\(/i.test(content)) warn(f, 'non-descriptive link text ("here", "read more")');
   if (queued && !data.publish_order && !data.publish_on) warn(f, 'queued post has no publish_order/publish_on (released in filename-date order)');
 }
 
