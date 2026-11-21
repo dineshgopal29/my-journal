@@ -75,6 +75,7 @@ const config: Config = {
   ],
 
   themes: [
+    '@docusaurus/theme-mermaid',
     [
       require.resolve('@easyops-cn/docusaurus-search-local'),
       {
@@ -91,6 +92,7 @@ const config: Config = {
   ],
 
   markdown: {
+    mermaid: true,
     // Keep legacy `<!-- ... -->` comments (e.g. `<!-- truncate -->` in docs) compiling.
     mdx1Compat: {comments: true},
     hooks: {

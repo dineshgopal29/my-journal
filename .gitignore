@@ -29,3 +29,7 @@ CLAUDE.md
 # Editor workspace files
 *.code-workspace
 .playwright-mcp/
+
+# Publishing workflow: raw drafts and the local user guide stay on this machine
+drafts/
+publishing/USER-GUIDE.html
