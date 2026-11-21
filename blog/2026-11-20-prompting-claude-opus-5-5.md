@@ -67,7 +67,7 @@ The "do not" line follows the guide's point that a vague "avoid a generic look" 
 
 - **The numbers are Anthropic's, and mostly unpublished.** The Decoder reports no figures at all. The one measured figure I can point to in the guide is output tokens "more than 30 percent faster" than Opus 5. Everything else is qualitative.
 - **The Sonnet versus Opus cost claim is secondhand.** The Decoder says a more capable model may finish in fewer steps, partly offsetting its higher per-token price, and that Sonnet at its highest settings can cost about as much as Opus 5.5. The official guide makes no such comparison. Measure your own workload before re-routing anything.
-- **Effort names differ between the two sources.** The Decoder lists Medium, High, Extra High and Max. The guide's values are `low`, `medium`, `xhigh` and `max`, with `high` on Opus 5. Check the API reference before hardcoding a value.
+- **Effort names differ between the two sources.** The Decoder lists Medium, High, Extra High and Max, while the guide mentions `low`, `medium`, `xhigh` and `max`. The Anthropic Python SDK's types accept `low`, `medium`, `high`, `xhigh` and `max`, set as `output_config={"effort": ...}`, and the models API reports which levels a given model supports. Check that rather than hardcoding a value.
 
 ## What I would do about it
 
